@@ -210,45 +210,44 @@
     color: var(--accent);
   }
   
-  /* Projects Grid */
-  .projects-grid {
+  /* Project Section (Updated to match Skills UI) */
+.projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
-  }
-  .project-card {
-    position: relative;
-    overflow: hidden;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
     border-radius: 10px;
-    background: rgba(255,255,255,0.05);
+    text-align: center;
+    transition: background 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-  }
-  .project-card:hover {
-    transform: scale(1.02);
-  }
-  .project-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    /* Always show the overlay */
-    opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
-    transition: opacity 0.3s ease;
-  }
-  .project-overlay h3 {
-    margin-bottom: 1rem;
+}
+
+.project-card:hover {
+    background: var(--secondary);
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
     font-size: 1.5rem;
-  }
-  .btn-details {
+    margin-bottom: 0.5rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.project-card .btn-details {
+    margin-top: 1rem;
     background: var(--accent);
     color: var(--light);
     padding: 0.5rem 1rem;
@@ -256,10 +255,12 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
-  }
-  .btn-details:hover {
+}
+
+.project-card .btn-details:hover {
     background: var(--secondary);
-  }
+}
+ 
   
   /* Education & Contact Sections */
   #education, #contact {
