@@ -3,136 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omer Saleem - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Omer Saleem | Full Stack Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* CSS */
+        :root {
+            --primary: #2A2A2A;
+            --secondary: #77aaff;
+            --accent: #FF4A57;
+            --text: #F4F4F4;
+            --bg: #1A1A1A;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            width: 100%;
+            padding: 1.5rem;
+            background: rgba(26, 26, 26, 0.95);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(45deg, #1a1a1a 30%, #2a2a2a 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--secondary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding: 3rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 2rem;
+            margin: 2rem 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+        .timeline-item:hover {
+            transform: translateX(20px);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-card {
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            background: var(--secondary);
+            transform: translateY(-10px);
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            opacity: 0;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+    </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Omer Saleem</h1>
-                <p>Software Developer | Python | Django | Odoo</p>
-                <a href="#contact" class="btn">Get in Touch</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container">
+    <nav class="nav">
+        <div class="container nav-content">
             <h2>Omer Saleem</h2>
-            <ul>
-                <li><a href="#summary">Summary</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+            <div class="nav-links">
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Summary Section -->
-    <section id="summary">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="container">
-            <h2>Summary</h2>
-            <p>Skilled Software Developer with 5 years of experience in WebApp development, module customization, and API integration. Expertise in Python, Django, and Odoo, with a focus on deployment and workflow optimization. Adept at collaborating with cross-functional teams to deliver efficient, high-quality solutions. Passionate about continuous learning and technical growth.</p>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="container">
-            <h2>Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h3>Software Developer (Odoo)</h3>
-                    <p>SDIT | 08/2024 - Present | Riyadh, Saudi Arabia</p>
-                    <ul>
-                        <li>Conducted thorough client consultations to discern their requirements, offering tailored Odoo solutions aligned with their needs.</li>
-                        <li>Developed custom modules in response to client specifications, ensuring seamless integration with existing systems.</li>
-                        <li>Managed projects on Odoo.sh, overseeing all aspects from development through to deployment.</li>
-                    </ul>
-                </div>
-                <div class="timeline-item">
-                    <h3>Software Developer</h3>
-                    <p>KNYSYS | 05/2021 - 08/2024 | Karachi, Pakistan</p>
-                    <ul>
-                        <li>Designed specialized modules tailored to client needs, ensuring seamless integration with existing systems.</li>
-                        <li>Developed and maintained high-quality software solutions according to project specifications.</li>
-                        <li>Participated in the entire software development lifecycle, from concept to deployment.</li>
-                    </ul>
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Full Stack Developer</h1>
+                <p class="subtitle">Python | Django | Odoo Specialist</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Projects Completed</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill">
-                    <p>Python</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 90%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <p>Django</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 85%;"></div>
-                    </div>
-                </div>
-                <div class="skill">
-                    <p>Odoo</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 80%;"></div>
-                    </div>
-                </div>
-                <!-- Add more skills here -->
+    <!-- Experience -->
+    <section id="experience" class="container">
+        <h2 data-aos="fade-right">Professional Journey</h2>
+        <div class="timeline">
+            <!-- SDIT Experience -->
+            <div class="timeline-item" data-aos="fade-up">
+                <h3>Software Developer (Odoo)</h3>
+                <p class="meta">SDIT | 2024 - Present | Riyadh</p>
+                <ul class="achievements">
+                    <li>Developed 20+ custom Odoo modules</li>
+                    <li>Reduced operational time by 30% through optimization</li>
+                    <li>Managed end-to-end Odoo.sh deployments</li>
+                </ul>
+            </div>
+
+            <!-- KNYSYS Experience -->
+            <div class="timeline-item" data-aos="fade-up">
+                <h3>Software Developer</h3>
+                <p class="meta">KNYSYS | 2021 - 2024 | Karachi</p>
+                <ul class="achievements">
+                    <li>Full SDLC management</li>
+                    <li>Database design & optimization</li>
+                    <li>Third-party API integration specialist</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Smart Home Automation Using AI</h3>
-                    <p>Analyzed the methods of home automation and allowed remote communication with home appliances.</p>
-                    <a href="#" class="btn">View Details</a>
-                </div>
-                <div class="project-card">
+    <!-- Skills -->
+    <section id="skills" class="container">
+        <h2 data-aos="fade-right">Technical Arsenal</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="zoom-in">
+                <i class="fab fa-python"></i>
+                <h3>Python</h3>
+                <p>Django | Flask | Odoo</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in">
+                <i class="fas fa-database"></i>
+                <h3>Databases</h3>
+                <p>PostgreSQL | MySQL | MongoDB</p>
+            </div>
+            <div class="skill-card" data-aos="zoom-in">
+                <i class="fas fa-cloud"></i>
+                <h3>DevOps</h3>
+                <p>AWS | Docker | Nginx</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="container">
+        <h2 data-aos="fade-right">Key Projects</h2>
+        <div class="projects-grid">
+            <!-- OpenEdx Project -->
+            <div class="project-card" data-aos="flip-left">
+                <div class="project-overlay">
                     <h3>OpenEdx WebApp</h3>
-                    <p>Implemented RESTful APIs for seamless integration with Flutter applications.</p>
-                    <a href="#" class="btn">View Details</a>
+                    <p>REST API Integration | E-commerce | Flutter</p>
+                    <button class="btn-details">View Case Study</button>
                 </div>
-                <!-- Add more project cards here -->
+            </div>
+            
+            <!-- Munaaseb Project -->
+            <div class="project-card" data-aos="flip-left">
+                <div class="project-overlay">
+                    <h3>Munaaseb (Odoo17)</h3>
+                    <p>Dockerized Deployment | Custom API Integration</p>
+                    <button class="btn-details">View Case Study</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:omer.saleem09@gmail.com">omer.saleem09@gmail.com</a></p>
-            <p>Phone: +923353053484</p>
-        </div>
-    </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Omer Saleem. All rights reserved.</p>
-        </div>
-    </footer>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-    <script src="script.js"></script>
+        // Project Card Interactions
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+            });
+        });
+    </script>
 </body>
 </html>
