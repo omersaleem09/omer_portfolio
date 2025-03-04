@@ -1,8 +1,8 @@
 // script.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Smooth scrolling
     document.querySelectorAll('nav ul li a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
@@ -12,22 +12,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Dark mode toggle
     const darkModeToggle = document.getElementById('dark-mode-toggle');
-    darkModeToggle.addEventListener('click', function() {
+    darkModeToggle.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode');
         if (document.body.classList.contains('dark-mode')) {
-            darkModeToggle.textContent = 'Light Mode';
+            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
         } else {
-            darkModeToggle.textContent = 'Dark Mode';
+            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
         }
     });
 
-    // Hover animations for jobs and projects
-    document.querySelectorAll('.job, .project').forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
+    // Animate progress bars on scroll
+    const skillsSection = document.getElementById('skills');
+    const progressBars = document.querySelectorAll('.progress');
+
+    const animateProgressBars = () => {
+        progressBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 300);
         });
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateProgressBars();
+                observer.unobserve(skillsSection);
+            }
         });
     });
+
+    observer.observe(skillsSection);
 });

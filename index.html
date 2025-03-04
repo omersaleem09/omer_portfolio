@@ -5,16 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Omer Saleem - Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <!-- Hero Section -->
+    <section id="hero">
         <div class="container">
-            <h1>Omer Saleem</h1>
-            <p>Software Developer</p>
+            <div class="hero-content">
+                <h1>Omer Saleem</h1>
+                <p>Software Developer | Python | Django | Odoo</p>
+                <a href="#contact" class="btn">Get in Touch</a>
+            </div>
         </div>
-        <button id="dark-mode-toggle">Dark Mode</button>
-    </header>
+    </section>
 
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container">
+            <h2>Omer Saleem</h2>
+            <ul>
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="dark-mode-toggle"><i class="fas fa-moon"></i></button>
+        </div>
+    </nav>
+
+    <!-- Summary Section -->
     <section id="summary">
         <div class="container">
             <h2>Summary</h2>
@@ -22,113 +42,82 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
     <section id="experience">
         <div class="container">
             <h2>Experience</h2>
-            <div class="job">
-                <h3>Software Developer (Odoo)</h3>
-                <p>SDIT | 08/2024 - Present | Riyadh, Saudi Arabia</p>
-                <ul>
-                    <li>Conducted thorough client consultations to discern their requirements, offering tailored Odoo solutions aligned with their needs.</li>
-                    <li>Developed custom modules in response to client specifications, ensuring seamless integration with existing systems.</li>
-                    <li>Managed projects on Odoo.sh, overseeing all aspects from development through to deployment, ensuring smooth execution at every stage.</li>
-                    <li>Provided technical expertise and guidance to internal teams and clients on Odoo architecture, customization options, and integration possibilities.</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Software Developer</h3>
-                <p>KNYSYS | 05/2021 - 08/2024 | Karachi, Pakistan</p>
-                <ul>
-                    <li>Designed specialized modules tailored to client needs, ensuring they seamlessly integrated with existing systems.</li>
-                    <li>Developed and maintained high-quality software solutions according to project specifications.</li>
-                    <li>Participated in the entire software development lifecycle, from concept and design to testing and deployment.</li>
-                    <li>Collaborated with cross-functional teams to gather and define software requirements.</li>
-                    <li>Produced clean, efficient code based on specifications.</li>
-                    <li>Integrated software components and third-party programs.</li>
-                    <li>Designed and maintained databases, ensuring data integrity and optimal performance.</li>
-                    <li>Effectively communicated technical concepts to non-technical stakeholders.</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Web Developer</h3>
-                <p>Sibex System | 01/2021 - 03/2021 | Karachi, Pakistan</p>
-                <ul>
-                    <li>Implemented modern design principles and techniques to enhance the overall user experience.</li>
-                    <li>Developed and maintained responsive and user-friendly websites using HTML, CSS, and JavaScript.</li>
-                    <li>Troubleshot and resolved issues related to website functionality, layout, and performance.</li>
-                </ul>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Software Developer (Odoo)</h3>
+                    <p>SDIT | 08/2024 - Present | Riyadh, Saudi Arabia</p>
+                    <ul>
+                        <li>Conducted thorough client consultations to discern their requirements, offering tailored Odoo solutions aligned with their needs.</li>
+                        <li>Developed custom modules in response to client specifications, ensuring seamless integration with existing systems.</li>
+                        <li>Managed projects on Odoo.sh, overseeing all aspects from development through to deployment.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <h3>Software Developer</h3>
+                    <p>KNYSYS | 05/2021 - 08/2024 | Karachi, Pakistan</p>
+                    <ul>
+                        <li>Designed specialized modules tailored to client needs, ensuring seamless integration with existing systems.</li>
+                        <li>Developed and maintained high-quality software solutions according to project specifications.</li>
+                        <li>Participated in the entire software development lifecycle, from concept to deployment.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2>Skills</h2>
-            <div class="skills-list">
-                <ul>
-                    <li>Odoo</li>
-                    <li>Python</li>
-                    <li>Django</li>
-                    <li>Flask</li>
-                    <li>AWS</li>
-                    <li>CRM</li>
-                    <li>DO</li>
-                    <li>Docker</li>
-                    <li>Git</li>
-                    <li>HTML</li>
-                    <li>JavaScript</li>
-                    <li>Linux</li>
-                    <li>Moodle</li>
-                    <li>MySQL</li>
-                    <li>Nginx</li>
-                    <li>OOP</li>
-                    <li>OpenCV</li>
-                    <li>PHP</li>
-                    <li>Postgres</li>
-                    <li>REST</li>
-                    <li>SQL</li>
-                    <li>XML</li>
-                    <li>Celery</li>
-                    <li>IBM</li>
-                </ul>
+            <div class="skills-grid">
+                <div class="skill">
+                    <p>Python</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <p>Django</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <p>Odoo</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <!-- Add more skills here -->
             </div>
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
         <div class="container">
             <h2>Projects</h2>
-            <div class="project">
-                <h3>Smart Home Automation Using AI</h3>
-                <p>Analyzed the methods of home automation and allowed remote communication with home appliances.</p>
-            </div>
-            <div class="project">
-                <h3>OpenEdx WebApp</h3>
-                <p>Implemented RESTful APIs for seamless integration with Flutter applications. Streamlined user onboarding with efficient and secure registration scripts. Worked on integrating e-commerce functionality within Open edX, facilitating transactions and payment processing.</p>
-            </div>
-            <div class="project">
-                <h3>Geographical Information System</h3>
-                <p>Implemented MapBox on existing app. Developed APIs to extract results and show them on the app as per requirement.</p>
-            </div>
-            <div class="project">
-                <h3>Teef (Odoo14 sh)</h3>
-                <p>Enhanced overall project by reducing the operations time. Enhancing and customizing the PAYROLL, Attendance and LEAVES modules.</p>
-            </div>
-            <div class="project">
-                <h3>Munaaseb (Odoo17)</h3>
-                <p>Dockerized installation of Odoo 17, ensuring seamless deployment, scalability, and secure access. Developed a custom API to integrate and post third-party data into Odoo, based on business requirements.</p>
-            </div>
-            <div class="project">
-                <h3>WOGA (Odoo18)</h3>
-                <p>Dockerized installation of Odoo 18 ensuring seamless deployment, scalability, and secure access. Developed Custom APIs for customers and invoices.</p>
-            </div>
-            <div class="project">
-                <h3>Medchart Pro (Django)</h3>
-                <p>Inherited di-rest-auth to create custom authentication endpoints for integration with a Next.js app. Created celery task’s for real time fetching of data from third party application.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Smart Home Automation Using AI</h3>
+                    <p>Analyzed the methods of home automation and allowed remote communication with home appliances.</p>
+                    <a href="#" class="btn">View Details</a>
+                </div>
+                <div class="project-card">
+                    <h3>OpenEdx WebApp</h3>
+                    <p>Implemented RESTful APIs for seamless integration with Flutter applications.</p>
+                    <a href="#" class="btn">View Details</a>
+                </div>
+                <!-- Add more project cards here -->
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Contact</h2>
@@ -137,6 +126,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2024 Omer Saleem. All rights reserved.</p>
