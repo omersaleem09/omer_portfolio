@@ -1,48 +1,41 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function () {
-    // Smooth scrolling
-    document.querySelectorAll('nav ul li a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+    // Initialize AOS animations
+    AOS.init({ duration: 1000, once: true });
+  
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
     });
-
-    // Dark mode toggle
-    const darkModeToggle = document.getElementById('dark-mode-toggle');
-    darkModeToggle.addEventListener('click', function () {
-        document.body.classList.toggle('dark-mode');
-        if (document.body.classList.contains('dark-mode')) {
-            darkModeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        } else {
-            darkModeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        }
+  
+    // Optional: Interactive hover effects on project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
     });
-
-    // Animate progress bars on scroll
-    const skillsSection = document.getElementById('skills');
-    const progressBars = document.querySelectorAll('.progress');
-
-    const animateProgressBars = () => {
-        progressBars.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 300);
-        });
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateProgressBars();
-                observer.unobserve(skillsSection);
-            }
-        });
-    });
-
-    observer.observe(skillsSection);
-});
+  
+    // Count-up animation for Projects Completed (from 1 to 50)
+    const projectsCountEl = document.getElementById('projectsCount');
+    let count = 1;
+    const target = 50;
+    const duration = 2000; // total duration in ms
+    const intervalTime = Math.floor(duration / target);
+  
+    const counter = setInterval(() => {
+      projectsCountEl.textContent = count;
+      if (count >= target) {
+        clearInterval(counter);
+        projectsCountEl.textContent = target;
+      }
+      count++;
+    }, intervalTime);
+  });
+  
