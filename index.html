@@ -1,303 +1,521 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omer Saleem | Full Stack Developer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <style>
-        /* CSS */
-        :root {
-            --primary: #2A2A2A;
-            --secondary: #77aaff;
-            --accent: #FF4A57;
-            --text: #F4F4F4;
-            --bg: #1A1A1A;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            width: 100%;
-            padding: 1.5rem;
-            background: rgba(26, 26, 26, 0.95);
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(45deg, #1a1a1a 30%, #2a2a2a 100%);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding: 3rem 0;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding: 2rem;
-            margin: 2rem 0;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(20px);
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
-            padding: 2rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            background: var(--secondary);
-            transform: translateY(-10px);
-        }
-
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            background: rgba(255,255,255,0.05);
-            transition: 0.3s;
-        }
-
-        .project-card:hover .project-overlay {
-            opacity: 1;
-        }
-
-        .project-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            opacity: 0;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 2rem;
-        }
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omer Saleem | Full Stack Developer</title>
+  <!-- Font Awesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    /* CSS Variables for Theme */
+    :root {
+      --primary: #1A1A1A;
+      --secondary: #77aaff;
+      --accent: #FF4A57;
+      --light: #F4F4F4;
+      --dark: #2A2A2A;
+      --body-bg: #121212;
+    }
+    
+    /* Reset & Typography */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--body-bg);
+      color: var(--light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    a {
+      text-decoration: none;
+      color: var(--light);
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--secondary);
+    }
+    
+    /* Container */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(18,18,18,0.95);
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .nav .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .nav .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding-top: 80px; /* To offset fixed nav */
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat-item h3 {
+      font-size: 2rem;
+      color: var(--secondary);
+    }
+    
+    /* Section Headings */
+    section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    section h2::after {
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      margin: 0.5rem auto 0;
+      display: block;
+    }
+    
+    /* About Section */
+    #about {
+      background: var(--dark);
+      padding: 4rem 0;
+      text-align: center;
+    }
+    #about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      margin: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 2px;
+      height: 100%;
+      background: var(--secondary);
+      transform: translateX(-50%);
+    }
+    .timeline-item {
+      background: rgba(255,255,255,0.05);
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      width: 90%;
+      max-width: 500px;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .timeline-item:hover {
+      transform: translateY(-5px);
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      margin-right: auto;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .timeline-item .meta {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    .timeline-item ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+    }
+    
+    /* Skills Grid */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .skill-card {
+      background: rgba(255,255,255,0.05);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: background 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    .skill-card:hover {
+      background: var(--secondary);
+      transform: translateY(-5px);
+    }
+    .skill-card i {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+    
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.02);
+    }
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      transition: opacity 0.3s ease;
+    }
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+    .project-overlay h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    .btn-details {
+      background: var(--accent);
+      color: var(--light);
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .btn-details:hover {
+      background: var(--secondary);
+    }
+    
+    /* Education & Contact Sections */
+    #education, #contact {
+      padding: 4rem 0;
+      text-align: center;
+    }
+    .contact-info {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 10px;
+      }
+      .timeline-item {
+        width: 95%;
+        margin-left: 2rem;
+      }
+      .nav .nav-content {
+        flex-direction: column;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container nav-content">
-            <h2>Omer Saleem</h2>
-            <div class="nav-links">
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-content container">
+      <div class="logo">Omer Saleem</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content" data-aos="fade-up">
+      <h1>Full Stack Developer</h1>
+      <p>Python | Django | Odoo Specialist</p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h3>5+</h3>
+          <p>Years Experience</p>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content" data-aos="fade-up">
-                <h1>Full Stack Developer</h1>
-                <p class="subtitle">Python | Django | Odoo Specialist</p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>5+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>50+</h3>
-                        <p>Projects Completed</p>
-                    </div>
-                </div>
-            </div>
+        <div class="stat-item">
+          <h3>50+</h3>
+          <p>Projects Completed</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Experience -->
-    <section id="experience" class="container">
-        <h2 data-aos="fade-right">Professional Journey</h2>
-        <div class="timeline">
-            <!-- SDIT Experience -->
-            <div class="timeline-item" data-aos="fade-up">
-                <h3>Software Developer (Odoo)</h3>
-                <p class="meta">SDIT | 2024 - Present | Riyadh</p>
-                <ul class="achievements">
-                    <li>Developed 20+ custom Odoo modules</li>
-                    <li>Reduced operational time by 30% through optimization</li>
-                    <li>Managed end-to-end Odoo.sh deployments</li>
-                </ul>
-            </div>
+  <!-- About Section -->
+  <section id="about" class="container" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      I am a skilled Software Developer with 5 years of experience in web application development, module customization, and API integration. Passionate about creating efficient, user-friendly solutions, I continuously strive to innovate and enhance user experiences.
+    </p>
+  </section>
 
-            <!-- KNYSYS Experience -->
-            <div class="timeline-item" data-aos="fade-up">
-                <h3>Software Developer</h3>
-                <p class="meta">KNYSYS | 2021 - 2024 | Karachi</p>
-                <ul class="achievements">
-                    <li>Full SDLC management</li>
-                    <li>Database design & optimization</li>
-                    <li>Third-party API integration specialist</li>
-                </ul>
-            </div>
+  <!-- Experience Section -->
+  <section id="experience" class="container" data-aos="fade-up">
+    <h2>Professional Journey</h2>
+    <div class="timeline">
+      <!-- SDIT Experience -->
+      <div class="timeline-item" data-aos="fade-right">
+        <h3>Software Developer (Odoo)</h3>
+        <p class="meta">SDIT | Aug 2024 - Present | Riyadh, Saudi Arabia</p>
+        <ul>
+          <li>Conducted thorough client consultations to deliver tailored Odoo solutions.</li>
+          <li>Developed custom modules and ensured seamless integrations.</li>
+          <li>Managed end-to-end deployments on Odoo.sh.</li>
+        </ul>
+      </div>
+      <!-- KNYSYS Experience -->
+      <div class="timeline-item" data-aos="fade-left">
+        <h3>Software Developer</h3>
+        <p class="meta">KNYSYS | May 2021 - Aug 2024 | Karachi, Pakistan</p>
+        <ul>
+          <li>Designed and developed specialized modules per client requirements.</li>
+          <li>Managed the full software development lifecycle and optimized databases.</li>
+          <li>Integrated third-party APIs and collaborated with cross-functional teams.</li>
+        </ul>
+      </div>
+      <!-- Sibex System Experience -->
+      <div class="timeline-item" data-aos="fade-right">
+        <h3>Web Developer</h3>
+        <p class="meta">Sibex System | Jan 2021 - Mar 2021 | Karachi, Pakistan</p>
+        <ul>
+          <li>Implemented modern design principles to enhance user experience.</li>
+          <li>Developed responsive websites using HTML, CSS, and JavaScript.</li>
+          <li>Troubleshot and resolved website functionality issues.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="container" data-aos="fade-up">
+    <h2>Technical Arsenal</h2>
+    <div class="skills-grid">
+      <div class="skill-card" data-aos="zoom-in">
+        <i class="fab fa-python"></i>
+        <h3>Python &amp; Odoo</h3>
+        <p>Django | Flask | Odoo</p>
+      </div>
+      <div class="skill-card" data-aos="zoom-in">
+        <i class="fas fa-server"></i>
+        <h3>Web &amp; API</h3>
+        <p>HTML | CSS | JavaScript | REST</p>
+      </div>
+      <div class="skill-card" data-aos="zoom-in">
+        <i class="fas fa-cloud"></i>
+        <h3>DevOps</h3>
+        <p>AWS | Docker | Nginx | Git</p>
+      </div>
+      <div class="skill-card" data-aos="zoom-in">
+        <i class="fas fa-database"></i>
+        <h3>Databases</h3>
+        <p>MySQL | Postgres | SQL</p>
+      </div>
+      <div class="skill-card" data-aos="zoom-in">
+        <i class="fas fa-code"></i>
+        <h3>Additional</h3>
+        <p>PHP | XML | Celery | OpenCV</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="container" data-aos="fade-up">
+    <h2>Key Projects</h2>
+    <div class="projects-grid">
+      <!-- Smart Home Automation Using AI -->
+      <div class="project-card" data-aos="flip-left">
+        <div class="project-overlay">
+          <h3>Smart Home Automation</h3>
+          <p>AI-driven remote appliance control</p>
+          <button class="btn-details">View Details</button>
         </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="container">
-        <h2 data-aos="fade-right">Technical Arsenal</h2>
-        <div class="skills-grid">
-            <div class="skill-card" data-aos="zoom-in">
-                <i class="fab fa-python"></i>
-                <h3>Python</h3>
-                <p>Django | Flask | Odoo</p>
-            </div>
-            <div class="skill-card" data-aos="zoom-in">
-                <i class="fas fa-database"></i>
-                <h3>Databases</h3>
-                <p>PostgreSQL | MySQL | MongoDB</p>
-            </div>
-            <div class="skill-card" data-aos="zoom-in">
-                <i class="fas fa-cloud"></i>
-                <h3>DevOps</h3>
-                <p>AWS | Docker | Nginx</p>
-            </div>
+      </div>
+      <!-- OpenEdx WebApp -->
+      <div class="project-card" data-aos="flip-left">
+        <div class="project-overlay">
+          <h3>OpenEdx WebApp</h3>
+          <p>REST API integration, secure onboarding, e-commerce</p>
+          <button class="btn-details">View Details</button>
         </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="container">
-        <h2 data-aos="fade-right">Key Projects</h2>
-        <div class="projects-grid">
-            <!-- OpenEdx Project -->
-            <div class="project-card" data-aos="flip-left">
-                <div class="project-overlay">
-                    <h3>OpenEdx WebApp</h3>
-                    <p>REST API Integration | E-commerce | Flutter</p>
-                    <button class="btn-details">View Case Study</button>
-                </div>
-            </div>
-            
-            <!-- Munaaseb Project -->
-            <div class="project-card" data-aos="flip-left">
-                <div class="project-overlay">
-                    <h3>Munaaseb (Odoo17)</h3>
-                    <p>Dockerized Deployment | Custom API Integration</p>
-                    <button class="btn-details">View Case Study</button>
-                </div>
-            </div>
+      </div>
+      <!-- Geographical Information System -->
+      <div class="project-card" data-aos="flip-left">
+        <div class="project-overlay">
+          <h3>GIS Application</h3>
+          <p>MapBox integration with custom API development</p>
+          <button class="btn-details">View Details</button>
         </div>
-    </section>
+      </div>
+      <!-- Teef (Odoo14 sh) -->
+      <div class="project-card" data-aos="flip-left">
+        <div class="project-overlay">
+          <h3>Teef (Odoo14)</h3>
+          <p>Customized Payroll, Attendance &amp; Leaves modules</p>
+          <button class="btn-details">View Details</button>
+        </div>
+      </div>
+      <!-- Munaaseb (Odoo17) -->
+      <div class="project-card" data-aos="flip-left">
+        <div class="project-overlay">
+          <h3>Munaaseb (Odoo17)</h3>
+          <p>Dockerized deployment &amp; custom API integration</p>
+          <button class="btn-details">View Details</button>
+        </div>
+      </div>
+      <!-- WOGA (Odoo18) & Medchart Pro (Django) -->
+      <div class="project-card" data-aos="flip-left">
+        <div class="project-overlay">
+          <h3>WOGA &amp; Medchart Pro</h3>
+          <p>Odoo18 deployment &amp; Django custom authentication</p>
+          <button class="btn-details">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize Animations
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
+  <!-- Education Section -->
+  <section id="education" class="container" data-aos="fade-up">
+    <h2>Education</h2>
+    <p>Bachelor's in Computer Science, Bahria University</p>
+  </section>
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+  <!-- Contact Section -->
+  <section id="contact" class="container" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <p class="contact-info">
+      <i class="fas fa-envelope"></i> omer.saleem09@gmail.com <br />
+      <i class="fas fa-phone"></i> +92 3353053484 <br />
+      <i class="fas fa-map-marker-alt"></i> Karachi, Pakistan
+    </p>
+  </section>
 
-        // Project Card Interactions
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-            });
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Omer Saleem. All Rights Reserved.</p>
+  </footer>
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
-            });
-        });
-    </script>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+    
+    // Optional: Add interactive hover effects on project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+        const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+      });
+    });
+  </script>
 </body>
 </html>
